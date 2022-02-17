@@ -1,3 +1,6 @@
+from pyrsistent import b
+
+
 class Director:
     """A person who directs the game. 
     
@@ -51,15 +54,17 @@ class Director:
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
 
-        banner.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
         
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
-                message = artifact.get_message()
-                banner.set_text(message)    
+                points = banner.get_value() + artifact.get_value()
+                banner.set_value(points)
+                banner.set_text(f"Score: {points}")
+                cast.remove_actor("artifacts", artifact)
+                   
         
     def _do_outputs(self, cast):
         """Draws the actors on the screen.
