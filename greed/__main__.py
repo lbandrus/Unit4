@@ -21,7 +21,7 @@ MAX_Y = 600
 MAX_WINDOW = (MAX_X, MAX_Y)
 CELL_SIZE = 15
 FONT_SIZE = 15
-COLS = 60
+COLS = 90
 ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
@@ -84,7 +84,7 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_message(message)
-        artifact.set_velocity(Point(0, 2))
+        artifact.set_velocity(Point(0, 5))
         cast.add_actor("artifacts", artifact)
     
     # start the game
