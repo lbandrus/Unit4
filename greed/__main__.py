@@ -26,7 +26,7 @@ ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 50
 
 
 
@@ -43,6 +43,15 @@ def main():
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
+
+    # create the record banner
+    record = Artifact()
+    record.set_value(0)
+    record.set_text(f"")
+    record.set_font_size(10)
+    record.set_color(WHITE)
+    record.set_position(Point(CELL_SIZE, 20))
+    cast.add_actor("records", record)
     
     # create the robot
     x = int(MAX_X / 2)
@@ -62,7 +71,8 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        message = random.choice(["o", "*"])
+        message = random.choice(["o", "*","?"])
+        record_text = ""
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -79,6 +89,8 @@ def main():
             artifact.set_value(-1)
         elif message == "*":
             artifact.set_value(1)
+        elif message == "?":
+            artifact.set_value(random.randint(-3, 3))
         artifact.set_text(message)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
