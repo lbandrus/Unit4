@@ -1,4 +1,5 @@
 from pyrsistent import b
+from game.shared.point import Point
 
 
 class Director:
@@ -11,7 +12,7 @@ class Director:
         _video_service (VideoService): For providing video output.
     """
 
-    def __init__(self, keyboard_service, video_service):
+    def __init__(self, keyboard_service, video_service, window_size):
         """Constructs a new Director using the specified keyboard and video services.
         
         Args:
@@ -20,6 +21,8 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self._max_y = window_size[0]
+        self._max_x = window_size[1]
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -64,6 +67,8 @@ class Director:
                 banner.set_value(points)
                 banner.set_text(f"Score: {points}")
                 cast.remove_actor("artifacts", artifact)
+            position = artifact.get_position()
+            artifact.move_next(self._max_x, self._max_y)
                    
         
     def _do_outputs(self, cast):

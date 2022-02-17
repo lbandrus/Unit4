@@ -18,6 +18,7 @@ from game.shared.point import Point
 FRAME_RATE = 12
 MAX_X = 900
 MAX_Y = 600
+MAX_WINDOW = (MAX_X, MAX_Y)
 CELL_SIZE = 15
 FONT_SIZE = 15
 COLS = 60
@@ -83,12 +84,13 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         artifact.set_message(message)
+        artifact.set_velocity(Point(0, 2))
         cast.add_actor("artifacts", artifact)
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
-    director = Director(keyboard_service, video_service)
+    director = Director(keyboard_service, video_service, MAX_WINDOW)
     director.start_game(cast)
 
 
