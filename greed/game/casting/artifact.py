@@ -7,6 +7,7 @@ class Artifact(Actor):
         super().__init__()
         self._message = ""
         self._value = 0
+        self._record_text = ""
 
     def set_value(self, value):
         self._value = value

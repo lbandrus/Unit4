@@ -1,5 +1,6 @@
 from pyrsistent import b
 from game.shared.point import Point
+from game.shared.color import Color
 
 
 class Director:
@@ -56,16 +57,35 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
+        record = cast.get_first_actor("records")
 
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
+
+        #Colors
+        GREEN = Color(0, 255, 0)
+        RED = Color(255, 0, 0)
+        GRAY = Color(211, 211, 211)
         
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
                 points = banner.get_value() + artifact.get_value()
                 banner.set_value(points)
                 banner.set_text(f"Score: {points}")
+
+                # Checks to add the banner with the respective color and points
+                if artifact.get_value() >= 1:
+                    recorded_points = artifact.get_value()
+                    record.set_color(GREEN)
+                    record.set_text(f"+{recorded_points} Points")
+                else:    
+                    recorded_points = str(artifact.get_value())
+                    record.set_color(RED)
+                    if artifact.get_value() == 0:
+                        record.set_color(GRAY)
+                    record.set_text(f"{recorded_points} Points")
+
                 cast.remove_actor("artifacts", artifact)
             position = artifact.get_position()
             artifact.move_next(self._max_x, self._max_y)
