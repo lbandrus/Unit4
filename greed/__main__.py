@@ -21,7 +21,7 @@ MAX_Y = 600
 MAX_WINDOW = (MAX_X, MAX_Y)
 CELL_SIZE = 15
 FONT_SIZE = 15
-COLS = 90
+COLS = 60
 ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
@@ -102,7 +102,7 @@ def main():
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
-    director = Director(keyboard_service, video_service, MAX_WINDOW)
+    director = Director(keyboard_service, video_service)
     director.start_game(cast)
 
 
