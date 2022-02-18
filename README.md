@@ -22,6 +22,17 @@ root                    (project root folder)
 +-- greed               (source code for game)
   +-- data              (data files for game)
   +-- game              (specific game classes)
+    +-- casting         
+      +-- artifact
+      +-- cast
+    +-- directing
+      +-- director
+    +-- services
+      +-- keyboard_service
+      +-- video_service
+    +-- shared
+      +-- color
+      +-- point
   +-- __main__.py       (entry point for program)
 +-- README.md           (general info)
 ```
