@@ -31,12 +31,10 @@ root                    (project root folder)
 * Raylib Python CFFI 3.7
 
 ## Authors
----
-* # TODO: 
-*Logan Andrus lbandrus@byui.edu 
-*Keeley Imlah wil11070@byui.edu 
-*Felipe Valencia fevacla@byui.edu 
-*Kathryn Thompson thompson21057@byui.edu 
+*Logan Andrus lbandrus@byui.edu
+*Keeley Imlah wil11070@byui.edu
+*Felipe Valencia fevacla@byui.edu
+*Kathryn Thompson thompson21057@byui.edu
 *Morgan Luke morganluke@byui.edu
 
 *Team 9 CSE-210 Winter 2022
