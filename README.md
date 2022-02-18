@@ -1,5 +1,4 @@
-# Robot Finds Kitten
-Simon Carless once described robotfindskitten as "less a game and more a way of life ... It's fun to wander around until you find a kitten, at which point you feel happy and can start again". I don't think I could have said it better myself!
+# Greed
 
 ## Getting Started
 ---
@@ -9,7 +8,7 @@ python3 -m pip install raylib
 ```
 After you've installed the required libraries, open a terminal and browse to the project's root folder. Start the program by running the following command.```
 
-python3 rfk 
+python3 greed 
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the 
 project folder. Select the main module inside the hunter folder and click the "run" icon.
@@ -19,7 +18,7 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- rfk                 (source code for game)
++-- greed               (source code for game)
   +-- data              (data files for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
@@ -33,4 +32,11 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add your name and email here
+* # TODO: 
+*Logan Andrus lbandrus@byui.edu 
+*Keeley Imlah wil11070@byui.edu 
+*Felipe Valencia fevacla@byui.edu 
+*Kathryn Thompson thompson21057@byui.edu 
+*Morgan Luke morganluke@byui.edu
+
+*Team 9 CSE-210 Winter 2022
