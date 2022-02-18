@@ -22,8 +22,6 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
-        # self._max_y = window_size[0]
-        # self._max_x = window_size[1]
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -49,7 +47,7 @@ class Director:
         robot.set_velocity(velocity)        
 
     def _do_updates(self, cast):
-        """Updates the robot's position and resolves any collisions with artifacts.
+        """Updates the robot's and other actor's positions and resolves any collisions with artifacts.
         
         Args:
             cast (Cast): The cast of actors.
@@ -63,7 +61,7 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
 
-        #Colors
+        #Colors for change in points banner.
         GREEN = Color(0, 255, 0)
         RED = Color(255, 0, 0)
         GRAY = Color(211, 211, 211)
