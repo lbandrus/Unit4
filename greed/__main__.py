@@ -72,7 +72,6 @@ def main():
 
     for n in range(DEFAULT_ARTIFACTS):
         message = random.choice(["o", "*","?"])
-        record_text = ""
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
