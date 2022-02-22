@@ -1,6 +1,7 @@
-from pyrsistent import b
+from game.casting.artifact import Artifact
 from game.shared.point import Point
 from game.shared.color import Color
+import random
 
 
 class Director:
@@ -44,7 +45,7 @@ class Director:
         """
         robot = cast.get_first_actor("robots")
         velocity = self._keyboard_service.get_direction()
-        robot.set_velocity(velocity)        
+        robot.set_velocity(velocity)
 
     def _do_updates(self, cast):
         """Updates the robot's and other actor's positions and resolves any collisions with artifacts.
@@ -85,6 +86,34 @@ class Director:
                     record.set_text(f"{recorded_points} Points")
 
                 cast.remove_actor("artifacts", artifact)
+                message = random.choice(["o", "*","?"])
+                columns = (self._video_service.get_height() / self._video_service.get_cell_size())
+                rows = (self._video_service.get_width() / self._video_service.get_cell_size())
+                x = random.randint(1, columns - 1)
+                y = random.randint(1, rows - 1)
+                position = Point(x, y)
+                cell_size = self._video_service.get_cell_size()
+                position = position.scale(cell_size)
+
+                r = random.randint(0, 255)
+                g = random.randint(0, 255)
+                b = random.randint(0, 255)
+                color = Color(r, g, b)
+        
+                new_artifact = Artifact()
+                if message == "o":
+                    new_artifact.set_value(-1)
+                elif message == "*":
+                    new_artifact.set_value(1)
+                elif message == "?":
+                    new_artifact.set_value(random.randint(-3, 3))
+                new_artifact.set_text(message)
+                new_artifact.set_font_size(self._video_service.get_cell_size())
+                new_artifact.set_color(color)
+                new_artifact.set_position(position)
+                new_artifact.set_message(message)
+                new_artifact.set_velocity(Point(0, 5))
+                cast.add_actor("artifacts", new_artifact)
             position = artifact.get_position()
             max_x = self._video_service.get_width()
             max_y = self._video_service.get_height()
