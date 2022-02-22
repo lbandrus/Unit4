@@ -1,6 +1,6 @@
 # Greed
 
-## Getting Started - our team Yay
+## Getting Started
 ---
 Make sure you have Python 3.8.0 or newer and Raylib Python CFFI 3.7 installed and running on your machine. You can install Raylib Python CFFI by opening a terminal and running the following command.
 ```

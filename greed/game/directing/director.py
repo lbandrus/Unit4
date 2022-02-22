@@ -61,6 +61,12 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
+        
+        if robot.get_position().get_y() <= 510:
+            y = 510
+            x = robot.get_position().get_x()     
+            robot.set_position(Point(x, y))
+
 
         #Colors for change in points banner.
         GREEN = Color(0, 255, 0)
