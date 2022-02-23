@@ -18,24 +18,24 @@ project folder. Select the main module inside the hunter folder and click the "r
 ---
 The project files and folders are organized as follows:
 
-root                    (project root folder)
-+-- greed               (source code for game)
-  +-- data              (data files for game)
-  +-- game              (specific game classes)
-    +-- casting
-      +-- actor       
-      +-- artifact
-      +-- cast
-    +-- directing
-      +-- director
-    +-- services
-      +-- keyboard_service
-      +-- video_service
-    +-- shared
-      +-- color
-      +-- point
-  +-- __main__.py       (entry point for program)
-+-- README.md           (general info)
+root                        (project root folder)
++-- greed                   (source code for game)
+  +-- data                  (data files for game)
+  +-- game                  (specific game classes)
+    +-- casting             (cast folder)
+      +-- actor             (Visable object methods)
+      +-- artifact          (Returns information for objects in game)
+      +-- cast              (list of all "actors" in the game)
+    +-- directing           (director folder)
+      +-- director          (directs the game)
+    +-- services            (services folder)
+      +-- keyboard_service  (for sensing where the player is in game)
+      +-- video_service     (draws game)
+    +-- shared              (shared objects for use in other classes)
+      +-- color             (color for actors in game)
+      +-- point             (gives the location for actors)
+  +-- __main__.py           (entry point for program)
++-- README.md               (general info)
 ```
 
 ## Required Technologies

@@ -31,7 +31,6 @@ DEFAULT_ARTIFACTS = 50
 
 
 def main():
-    
     # create the cast
     cast = Cast()
     

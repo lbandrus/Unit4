@@ -62,6 +62,11 @@ class Director:
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
 
+        if robot.get_position().get_y() <= 510:
+            y = 510
+            x = robot.get_position().get_x()     
+            robot.set_position(Point(x, y))
+
         #Colors for change in points banner.
         GREEN = Color(0, 255, 0)
         RED = Color(255, 0, 0)
@@ -114,6 +119,7 @@ class Director:
                 new_artifact.set_message(message)
                 new_artifact.set_velocity(Point(0, 5))
                 cast.add_actor("artifacts", new_artifact)
+                self._video_service._add_frame()
             position = artifact.get_position()
             max_x = self._video_service.get_width()
             max_y = self._video_service.get_height()
